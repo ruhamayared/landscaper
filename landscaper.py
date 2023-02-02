@@ -47,6 +47,7 @@ def win_check():
     return False
 
 
+# Loop for user's choices
 while (True):
     user_choice = input("[1] Mow Lawn [2] Check Stats [3] Upgrade [Q] Quit")
 
