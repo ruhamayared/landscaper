@@ -1,3 +1,4 @@
+# Game State
 game = {"tool": 0, "money": 0}
 
 tools = [
@@ -7,6 +8,8 @@ tools = [
     {"name": "battery_lawnmower", "profit": 100, "cost": 250},
     {"name": "team", "profit": 250, "cost": 500},
 ]
+
+# Game Option Functions
 
 
 def mow_lawn():
@@ -24,13 +27,15 @@ def check_stats():
 
 def upgrade():
     next_tool = tools[game["tool"] + 1]
-    print(f"You just upgraded to {next_tool['name']}!")  # Fix this part.
+
     if (next_tool == None):
         print("There are no more tools.")
         return 0
     if (game["money"] < next_tool["cost"]):
         print("Not enough money to buy tool.")
         return 0
+    else:
+        print(f"You just upgraded to {next_tool['name']}!")
     game["money"] -= next_tool["cost"]
     game["tool"] += 1
 
