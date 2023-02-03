@@ -26,11 +26,12 @@ def check_stats():
 
 
 def upgrade():
+    if (game['tool'] >= len(tools) - 1):
+        print("No more upgrades available")
+        return 0
+
     next_tool = tools[game["tool"] + 1]
 
-    if (next_tool == None):
-        print("There are no more tools.")  # This part isn't working!
-        return 0
     if (game["money"] < next_tool["cost"]):
         print("Not enough money to buy tool.")
         return 0
@@ -47,9 +48,15 @@ def win_check():
     return False
 
 
+def reset():
+    game["tool"] = 0
+    game["money"] = 0
+
+
 # Loop for user's choices
 while (True):
-    user_choice = input("[1] Mow Lawn [2] Check Stats [3] Upgrade [Q] Quit")
+    user_choice = input(
+        "[1] Mow Lawn [2] Check Stats [3] Upgrade [Q] Quit [R] Reset Game")
 
     if (user_choice == "Q"):
         print("You quit the game.")
@@ -60,5 +67,7 @@ while (True):
         check_stats()
     elif (user_choice == "3"):
         upgrade()
+    elif (user_choice == "R"):
+        reset()
     elif (win_check()):
         break
