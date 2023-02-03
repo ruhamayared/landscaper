@@ -29,7 +29,7 @@ def upgrade():
     next_tool = tools[game["tool"] + 1]
 
     if (next_tool == None):
-        print("There are no more tools.")
+        print("There are no more tools.")  # This part isn't working!
         return 0
     if (game["money"] < next_tool["cost"]):
         print("Not enough money to buy tool.")
